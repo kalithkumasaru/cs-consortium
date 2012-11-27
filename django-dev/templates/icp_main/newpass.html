@@ -1,0 +1,41 @@
+{% extends "icp_main/base_template.html" %}
+
+{% block content %}
+	
+<div id="form">
+
+<div id="crumb">
+You are here: <a href="/">Home</a> ><a href="/resource/">Log in</a> > <a href="/newpass/">Request for New Password</a>
+</div>
+
+{% if passwordreset %}
+
+<!-- Ruoxu: I added this part, can you make it look nice? - Adam -->
+<p style="color:white; background:#003300; padding:5px;">Your password has been reset and sent to {{ email }}. If you no longer have access to this email account, please contact a site administrator to reset your password and email address.</p>
+
+{% else %}
+
+	{% if error %}
+		<p style="color:white; background:#003300; padding:5px;">There was an error in your submission, perhaps your username does not exist in the system?</p>
+	{% endif %}
+
+
+<div id="newpass">
+<h3 style="text-align:center;">Request for new password</h3> 
+<form action="/newpass/"  accept-charset="UTF-8" method="post" id="user-pass">
+
+<label>Username:</label>
+<input type="text" maxlength="24" name="user name" size="30" width="30px" value="" class="input" />
+<br />
+<br />
+<input type="submit" name="op" id="edit-submit" value="E-mail new password" class="button" />
+<input type="hidden" name="form_build_id" id="form" value="form"  />
+<input type="hidden" name="form_id" id="edit-user-pass" value="user_pass"  />
+</form>
+
+</div>
+</div>
+
+{% endif %}
+	
+{% endblock content %}

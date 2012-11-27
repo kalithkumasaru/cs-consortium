@@ -1,0 +1,54 @@
+{% extends "icp_main/base_template.html" %}
+
+{% block content %}
+
+<style type="text/css">
+#content {
+height:580px;
+}
+</style>
+
+<body id="tab5">
+
+<div id="text">
+
+<div id="crumb">
+You are here: <a href="/">Home</a> > <a href="/contacts/">Contacts</a>
+</div>
+
+<h3>Contacts</h3>
+<p class="shadow">If you are interested in our projects, please contact us with the form below:</p>
+<form action="/contact/" method="post" class="form">
+<input type="hidden" name="recipient" value="dean.knudson@ndsu.edu" />
+<input type="hidden" name="subject" value="ICP consortium" />
+<input type="hidden" name="required" value="realname,email,company,position, interests" />
+<input type="hidden" name="missing_fields_redirect" value="oops.html" />
+<input type="hidden" name="redirect" value="thanks.html" />
+
+<p><label>Name:</label><input type="text" class="input" name="realname" /></p>
+
+<p><label>Company:</label><input type="text" class="input" name="company" /></p>
+
+<p><label>Position:</label><input type="text" class="input" name="position" /></p>
+
+<p><label>E-mail:</label><input type="text" class="input" name="email" /></p>
+
+<p><label>Interest:</label><textarea name="comments" rows="10" cols="25" class="input" ></textarea></p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;
+
+<button input type="submit">Submit</button>
+<button input type="reset">Reset</button>
+
+</form>
+
+<div id="dean">
+<p><b>Dean Knudson</b></p>
+<p><a href="mailto:dean.kudson@ndsu.edu">dean.knudson@ndsu.edu</a></p>
+<p>701-231-5612</p>
+</div>
+
+</div>
+</body>
+{% endblock content %}

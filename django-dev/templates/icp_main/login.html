@@ -1,0 +1,12 @@
+{% extends "icp_main/base_template.html" %}
+
+
+{% block content %}
+{% if authenticated %}
+	{{ auth }}
+	<br/>
+	{{ message }}
+{% else %}
+	Incorrect username and/or password, please try again.
+{% endif %}
+{% endblock content %}

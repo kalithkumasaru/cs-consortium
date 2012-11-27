@@ -1,0 +1,30 @@
+{% extends "icp_main/base_template.html" %}
+
+{% block content %}
+<body id="tab3">
+<div id="text">
+<div id="crumb">
+You are here: <a href="/">Home</a> ><a href="/showcase/">Showcase</a>
+</div>
+
+<h3>Project Showcase</h3>
+{% for project in proj_list %}
+<div id="showcase">
+<p><a href="/showcase/project/{{ project.shortname }}">{{ project.name }}</a></p>
+</div>
+{% endfor %}
+
+<h3>Event Showcase</h3>
+{% for event in event_list %}
+<div id="showcase">
+<p><a href="/showcase/event/{{ event.shortname }}">{{ event.name }}</a></p>
+</div>
+{% endfor %}
+
+<h3>Gallery</h3>
+
+<p><a href="/gallery/">Gallery</a></p>
+
+</div> 
+</body>
+{% endblock content %}

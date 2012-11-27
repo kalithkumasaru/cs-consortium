@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ICP Gallery-NDSU Computer Science</title>
+<script type="text/javascript" src="/static/js/prototype.js"></script>
+<script type="text/javascript" src="/static/js/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="/static/js/lightbox.js"></script>
+<link rel="stylesheet" href="/static/css/lightbox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/static/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="/static/jquery.bgpos.js"></script>
+<style type="text/css">
+h5 {
+text-shadow:0 -1px 0 black;
+}
+
+</style>
+</head>
+<body>
+
+<div id="content">
+<h1 style="text-align:center; font-size:45px;"><a href="#" style="color:white; text-decoration:none;" href="/">ICP Gallery</a></h1>
+
+<div id="crumb">
+You are here: <a href="/">Home</a> ><a href="/showcase/">Showcase</a> > <a href="#">ICP Gallery</a>
+</div>
+
+{% for event in event_list %}
+	<h3> {{ event.name }} </h3>
+	<h5>{{ event.date.isoformat }}</h5>
+	{% for pic in event.pictures.all %}
+		<a href="{{ pic.picture.url }}" rel="lightbox[roadtrip]"><img class="thumb" src="{{ pic.thumbnail.url }}" alt="" /></a>
+	{% endfor %}
+{% endfor %}
+</div>
+<br />
+<br />
+<footer>
+Copyright &copy; 2010 ICP-NDSU Computer Science Industry/University Consortium Program
+</footer>
+
+</body>
+</html>

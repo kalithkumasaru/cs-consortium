@@ -1,0 +1,51 @@
+{% extends "icp_main/base_template.html" %}
+
+{% block content %}
+<body id="tab6">
+
+<div id="text">
+
+<div id="crumb">
+You are here: <a href="/">Home</a> ><a href="/resource/">Log in</a>
+</div>
+
+<div id="login">
+<h3>User Login</h3>
+{% if authenticated %}
+<!-- section for authenticated users -->
+	<div class="form-item">
+	<!-- spiffy this part up! -->
+		You are logged in as: <br/>
+		<center><b> {{ username }} </b> </center>
+		<br/>
+		<a href="/logout/">logout</a>
+		{% if is_admin %}
+		<br/><a href="/admin">admin</a>
+		{% endif %}
+	</div>
+<!-- end section for authenticated users -->
+{% else %}
+<!-- form for non-authenticated users -->
+	<form action="/login/"  accept-charset="UTF-8" method="post" id="user-login-form">
+	
+<p><label >Username:</label><input type="text" maxlength="60" name="name" id="edit-name" size="15" class="input" /></p>
+<p><label >Password:</label><input type="password" name="pass" id="edit-pass"  maxlength="60"  size="15"  class="input" /></p>
+<input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" />
+	
+	<div class="item-list">
+	<ul>
+<li class="first"><a href="/register/" title="Create a new user account.">Create new account</a></li>
+<li class="last"><a href="/newpass/" title="Request new password via e-mail.">Request new password</a></li>
+</ul>
+	</div>
+	<input type="hidden" name="form_build_id" id="form" value="form"  />
+	<input type="hidden" name="form_id" id="edit-user-login-block" value="user_login_block"  />
+	</form>
+
+<!-- end non-authenticated user section -->
+{% endif %}
+</div>
+
+</div>
+</body>
+{% endblock content %}

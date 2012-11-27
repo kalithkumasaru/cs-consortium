@@ -1,0 +1,165 @@
+{% extends "icp_main/base_template.html" %}
+
+{% block style %}
+<style type="text/css">
+
+#banner {
+text-align:center;
+}
+
+#topnav {
+width:890px;
+margin:0px auto;
+}
+
+#topnav a {
+font-size:14px;
+color:white;
+text-decoration:none;
+}
+
+#topnav a:hover {
+text-decoration:underline;
+}
+
+body {
+font-family:Arial,Tahoma;
+margin: 0; 
+padding: 0;
+#background:silver;
+color:white;
+}
+
+* {margin: 0; padding: 0;}
+img {border: none;}
+
+.container {
+margin:0px auto;
+width:890px;
+height:380px;
+text-align:center;
+}
+
+ul.thumb {
+	float: left;
+	list-style: none;
+	margin: 0; padding: 10px;
+	width: 360px;
+}
+ul.thumb li {
+	margin: 0; padding: 5px;
+	float: left;
+	position: relative;
+	width: 110px;
+	height: 110px;
+}
+ul.thumb li img {
+	width: 100px; height: 100px;
+	border: 1px solid #ddd;
+	padding: 5px;
+	background: #f0f0f0;
+	position: absolute;
+	left: 0; top: 0;
+	-ms-interpolation-mode: bicubic; 
+}
+ul.thumb li img.hover {
+	background:url(bg.png) no-repeat center center;
+	border: none;
+}
+#main_view {
+	float: left;
+	padding: 10px;
+	margin: 5px;
+	#border:1px solid grey;
+	background:white;
+}
+</style> 
+{% endblock %} 
+
+{% block javascript %}
+<script type="text/javascript"> 
+
+$(document).ready(function(){
+
+//Larger thumbnail preview 
+
+	$("ul.thumb li").hover(	function() {
+	$(this).css({'z-index' : '10'});
+	$(this).find('img').addClass("hover").stop()
+		.animate({
+			marginTop: '-110px', 
+			marginLeft: '-110px', 
+			top: '50%', 
+			left: '50%', 
+			width: '174px', 
+			height: '174px',
+			padding: '20px' 
+		}, 200);
+	
+	} , function() {
+	$(this).css({'z-index' : '0'});
+	$(this).find('img').removeClass("hover").stop()
+		.animate({
+			marginTop: '0', 
+			marginLeft: '0',
+			top: '0', 
+			left: '0', 
+			width: '100px', 
+			height: '100px', 
+			padding: '5px'
+		}, 400);
+});
+
+//Swap Image on Click
+	$("ul.thumb li a").click(function() {
+		
+		var mainImage = $(this).attr("href"); //Find Image Name
+		var image = new Image();
+		image.src = mainImage;
+		$("#main_view img").attr({ src: mainImage });
+
+		//added by helsene, 3.28.11
+		var height = image.height;
+		var width = image.width;
+		var ratio = height / width;
+		var maxwidth = 450;
+		var widthpx, heightpx;
+		if ( width > maxwidth ) 
+		{
+			heightpx = ratio * maxwidth;
+			heightpx = heightpx;
+			widthpx = maxwidth;
+		}
+		else
+		{
+			heightpx = height;
+			widthpx = width;
+		}		
+		$("#main_view img").attr({ height: heightpx });
+		$("#main_view img").attr({ width: widthpx });
+
+		return false;		
+	});
+ 
+});
+</script> 
+{% endblock %}
+
+{% block content %}
+
+<div id="topnav">
+<a href="/">Home</a>&nbsp;>&nbsp;<a href="/static/gallery.html">Image Gallery</a>
+</div>
+
+<div class="container">
+<ul class="thumb">
+	{% for pic in pictures %}
+	<li><a href="{{ pic.picture.url }}"><img src="{{ pic.picture.url }}" alt="" /></a></li>
+	{% endfor %}
+</ul>
+<div id="main_view">
+	<img src="" id="main_pic" alt="" /><br /> -->
+</div>
+</div>
+
+{% endblock %}

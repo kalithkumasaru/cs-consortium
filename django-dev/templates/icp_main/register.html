@@ -1,0 +1,57 @@
+{% extends "icp_main/base_template.html" %}
+
+{% block content %}
+
+{% if registered %}
+
+	You have successfully registered, please check your email for your password. 
+
+{% else %}
+<div id="form1"> 
+<div id="crumb">
+You are here: <a href="/">Home</a> ><a href="/resource/">Log in</a> > <a href="/register/">Create New Account</a>
+</div> 
+<h3 style="text-align:center;">Create New Account</h3>                    
+<form action="/register/"  accept-charset="UTF-8" method="post" id="user-register">
+<fieldset style="width:800px;">
+<legend>Account information</legend>
+
+<div class="form-item" id="edit-name-wrapper">
+<label for="edit-name">Username:</label>
+<input type="text" maxlength="60" name="name" id="edit-name" size="30" value="" class="input" />
+<p style="font-size:12px;">Spaces are allowed; punctuation is not allowed except for periods, hyphens, and underscores.</p>
+</div>
+
+<div class="form-item" id="edit-mail-wrapper">
+<label for="edit-mail">E-mail:</label>
+<input type="text" maxlength="64" name="mail" id="edit-mail" size="30" value="" class="input" />
+<p style="font-size:12px;">A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.</p>
+</fieldset>
+<br />
+<input type="hidden" name="timezone" id="edit-user-register-timezone" value="-18000"  />
+<input type="hidden" name="form_build_id" id="form" value="form"  />
+<input type="hidden" name="form_id" id="edit-user-register" value="user_register"  />
+
+<fieldset style="width:800px;">
+<legend>Personal Information</legend>
+<label>FirstName:</label>
+<input type="text" maxlength="255" name="profile_first_name" id="edit-profile-first-name" size="30" value="" class="input" />
+<br />
+<br />
+<label>LastName:</label>
+<input type="text" maxlength="255" name="profile_last_name" id="edit-profile-last-name" size="30" value="" class="input" />
+<p style="font-size:12px;">The content of this field is kept private and will not be shown publicly.</p>
+
+<div class="form-item" id="edit-profile-organization-wrapper">
+ <label>Organization: </label>
+ <input type="text" maxlength="255" name="profile_organization" id="edit-profile-organization" size="30" value="" class="input" />
+<p style="font-size:12px;">The organization you are with. The content of this field is kept private and will not be shown publicly.</p>
+ </div>
+</fieldset>
+<br />
+<input type="submit" name="New User" value="Creat Account" class="form-submit" />
+</form>
+</div>
+
+{% endif %}
+{% endblock content %}

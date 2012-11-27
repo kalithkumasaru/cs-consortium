@@ -1,0 +1,45 @@
+{% extends "icp_main/base_template.html" %}
+
+{% block content %}
+<body id="tab2">
+<div id="text">
+<div id="crumb">
+You are here: <a href="/">Home</a> ><a href="/research/">Research</a>
+</div>
+
+<h3>Research Projects</h3>
+<div id="textwrap">
+<h4>Sugar Beet Yield Prediction</h4>
+<p>The project starts by extracting geographical position information from log files 
+
+that are stored on tractors and on trucks that collect the harvested sugarbeets and 
+
+deliver them to a weight station.  The output will be Shape Files containing 
+
+definitions of spatial polygons together with the yield that was achieved from the 
+
+respective spatial area.  The work involves matching trucks to tractors based on 
+
+the stored GPS locations, and identifying at what point the collection for a specific 
+
+truck starts and ends.  The project continues by taking current and historic satellite 
+
+images and predicting yield on their basis, as well as relating image/yield data to 
+
+grower information such as crop rotations. </p>
+
+<p style="text-align:right;"><a class="button" style="color:white;" href="/resource/">Project Details</a></p>
+</div>
+
+<div id="textwrap">
+<h4>Mobile Transportation Query System</h4>
+
+<p>Mobile devices are growing fast, and they provide great convenience to access information. This project will design a mobile transportation query system for iPhone, the most popular smartphone. Queries are sent to an oracle server from an iPhone. Then, relevant information is displayed on a 4'' screen with high usability. The proposed work allows federal agents to quickly retrieve information of a truck from anywhere at anytime.    </p>
+
+<p style="text-align:right;"><a class="button" style="color:white;" href="/resource/">Project Details</a></p>
+</div>
+
+</div>
+</body>
+{% endblock content %}
+

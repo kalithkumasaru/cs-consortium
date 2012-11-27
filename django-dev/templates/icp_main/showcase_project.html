@@ -1,0 +1,27 @@
+{% extends "icp_main/base_template.html" %}
+
+{% block content %}
+
+<div id="text">
+
+<h4>{{ display.name }}</h4>
+<table border="0">
+	<tr>
+		<td id="showcase_text">
+			{{ display.description|linebreaks }}<br>
+			<h4>Sponsors</h4>
+			<table border="0px">
+			{% for sponsor in display.sponsors.all %}
+			<tr>
+                     <td><img src="{{ sponsor.companyLogo.url }}"></td>
+			</tr>	
+			{% endfor %}
+			</table>
+		</td>
+		<td id="showcase_image"><img width=200 height=200 src="{{ displayimage.url }}">
+</td>
+	</tr>
+</table>
+</div> 
+
+{% endblock content %}
