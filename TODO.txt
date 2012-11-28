@@ -1,0 +1,18 @@
+#TODO
+---------
+1.logo
+2.structure of the home page primary div
+3.remove the business that exists on the footer that doesn't have affiliations with consortium 
+4.footer needs to be redesigned due to unusual positioning of elements
+5.search field needs to clear the initiallized text when user click on the field
+6.Research section : - 
+			i. improve the contrast with a picture
+		       ii. suprise action when click project details
+7.Showcase section: -
+			i. placement of elements should be changed
+		       ii. in articals download links are not obvious
+		      iii. gallery should be changed
+8.comments on articals?
+9.purpose of the login?
+
+
